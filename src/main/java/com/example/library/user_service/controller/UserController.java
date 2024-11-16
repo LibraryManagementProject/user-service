@@ -26,4 +26,9 @@ public class UserController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/{userId}/books")
+    public List<String> getBooksHeldByUser(@PathVariable int userId) {
+        return userService.getBooksHeldByUser(userId);
+    }
 }
